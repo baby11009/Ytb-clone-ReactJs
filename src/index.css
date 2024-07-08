@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-family: Roboto, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+:root {
+  --scroll-bar-width: auto;
+  scrollbar-color: #a9a9a9 #0f0f0f; /* Color of the scrollbar thumb and track */
+  scrollbar-width: var(--scroll-bar-width);
+}
+
+.scrollbar-2 {
+  scrollbar-width: medium;
+  scrollbar-color: #a9a9a9 #ffffff;
+}
+
+/* Style for Firefox */
+.menu-scrollbar {
+  scrollbar-width: thin; /* Width of the scrollbar */
+  scrollbar-color: transparent transparent; /* Color of the scrollbar thumb and track */
+}
+
+.menu-scrollbar:hover {
+  scrollbar-color: #7a7a7a transparent;
+}
+
+.hidden-scorllbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hidden-scorllbar::-webkit-scrollbar {
+  display: none;
+}
+
+.sd1 {
+  box-shadow: 8px 0px 5px 0 rgba(15, 15, 15, 0.8),
+    10px 0px 5px 0 rgba(15, 15, 15, 0.7); /* Highlight */
+}
+
+.sd2 {
+  box-shadow: -8px 0px 5px 0 rgba(15, 15, 15, 0.8),
+    -10px 0px 5px 0 rgba(15, 15, 15, 0.7); /* Highlight */
+}
+
+.sd3 {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.sd4 {
+  box-shadow: 0 4px 4px rgba(255, 255, 255, 0.2),
+    0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Style for text too long replace with ...  */
+/* 2 line */
+.t-ellipsis {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+/* 1 line */
+.t-1-ellipsis {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+/* custome range slider */
+.cs-range {
+  width: 85%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  accent-color: white;
+  outline: none;
+  border: none;
+}
+
+.cs-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+}
+
+.cs-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+}
+
+summary {
+  display: block;
+  /* works in firefox */
+  list-style: none;
+  /* works in firefox */
+}
+
+summary::after {
+  display: block;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 16/9 video  */
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  background-color: #000; /* Background color for demonstration */
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* background linear */
+
+/* animation */
+.moveOut {
+  opacity: 1;
+  transform: translateY(0);
+  animation: moveOut 0.6s cubic-bezier(0.4, 0, 0.2, 1) var(--delay) forwards;
+}
+
+@keyframes moveOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+}
+
+.moveIn {
+  opacity: 0;
+  transform: translateY(25px);
+  animation: moveIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) var(--delay) forwards;
+}
+
+@keyframes moveIn {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  80% {
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ping {
+
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1);
+}
+
+@keyframes ping {
+  0%{
+    transform: scale(0.9);
+  }
+  75%,
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* check mark from stratch */
+.check-mark {
+  position: absolute;
+  width: 36%;
+  height: 70%;
+  border-style: solid;
+  border-top: none;
+  border-left: none;
+  border-right-width: calc(0.1333333333 * 20px);
+  border-bottom-width: calc(0.1333333333 * 20px);
+  border-color: #0f0f0f;
+  -webkit-transform-origin: 97% 86%;
+  transform-origin: 97% 86%;
+  box-sizing: content-box;
+  animation: checkmark-expand 140ms ease-out forwards;
+  transform: scale(0, 0) rotate(45deg);
+}
+
+@keyframes checkmark-expand {
+  0% {
+    transform: scale(0, 0) rotate(45deg);
+  }
+
+  100% {
+    transform: scale(1, 1) rotate(45deg);
+  }
+}
